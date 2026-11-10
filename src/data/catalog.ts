@@ -95,7 +95,7 @@ export const heroSlides: HeroSlide[] = [
     titleTail: 'en productos TRUPER',
     ctaLabel: 'Ver promociones',
     ctaHref: '#catalogo',
-    image: null,
+    image: '/banners/buen-fin.jpg',
     imageAlt: 'Promoción de Buen Fin en herramientas Truper',
   },
 ]

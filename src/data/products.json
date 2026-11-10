@@ -8,8 +8,11 @@
     "price": 67.57,
     "oldPrice": 100.57,
     "currency": "usd",
-    "image": null,
-    "badges": ["promocion", "pocas-unidades"],
+    "image": "/products/taladro-percutor.jpg",
+    "badges": [
+      "promocion",
+      "pocas-unidades"
+    ],
     "stock": 4
   },
   {
@@ -21,8 +24,10 @@
     "price": 30.5,
     "oldPrice": 50.99,
     "currency": "usd",
-    "image": null,
-    "badges": ["promocion"],
+    "image": "/products/cadena-industrial.jpg",
+    "badges": [
+      "promocion"
+    ],
     "stock": 38
   },
   {
@@ -34,8 +39,10 @@
     "price": 39.99,
     "oldPrice": 67.67,
     "currency": "usd",
-    "image": null,
-    "badges": ["promocion"],
+    "image": "/products/juego-brocas.jpg",
+    "badges": [
+      "promocion"
+    ],
     "stock": 22
   },
   {
@@ -47,8 +54,10 @@
     "price": 67.57,
     "oldPrice": 100.57,
     "currency": "usd",
-    "image": null,
-    "badges": ["promocion"],
+    "image": "/products/bolsa-escombro.jpg",
+    "badges": [
+      "promocion"
+    ],
     "stock": 51
   },
   {
@@ -60,8 +69,11 @@
     "price": 67.57,
     "oldPrice": null,
     "currency": "usd",
-    "image": null,
-    "badges": ["mas-vendido", "pocas-unidades"],
+    "image": "/products/sierra-caladora.jpg",
+    "badges": [
+      "mas-vendido",
+      "pocas-unidades"
+    ],
     "stock": 3
   },
   {
@@ -73,8 +85,10 @@
     "price": 67.57,
     "oldPrice": 100.57,
     "currency": "usd",
-    "image": null,
-    "badges": ["promocion"],
+    "image": "/products/kit-seguridad.jpg",
+    "badges": [
+      "promocion"
+    ],
     "stock": 17
   },
   {
@@ -86,8 +100,10 @@
     "price": 42.3,
     "oldPrice": 58.0,
     "currency": "usd",
-    "image": null,
-    "badges": ["promocion"],
+    "image": "/products/llave-stilson.jpg",
+    "badges": [
+      "promocion"
+    ],
     "stock": 9
   },
   {
@@ -99,8 +115,10 @@
     "price": 24.9,
     "oldPrice": null,
     "currency": "usd",
-    "image": null,
-    "badges": ["mas-vendido"],
+    "image": "/products/candado-acero.jpg",
+    "badges": [
+      "mas-vendido"
+    ],
     "stock": 64
   },
   {
@@ -112,8 +130,11 @@
     "price": 89.0,
     "oldPrice": 119.5,
     "currency": "usd",
-    "image": null,
-    "badges": ["promocion", "mas-vendido"],
+    "image": "/products/esmeriladora-angular.jpg",
+    "badges": [
+      "promocion",
+      "mas-vendido"
+    ],
     "stock": 12
   },
   {
@@ -125,7 +146,7 @@
     "price": 18.75,
     "oldPrice": null,
     "currency": "usd",
-    "image": null,
+    "image": "/products/manguera-jardin.jpg",
     "badges": [],
     "stock": 41
   },
@@ -138,8 +159,11 @@
     "price": 9.4,
     "oldPrice": 12.9,
     "currency": "usd",
-    "image": null,
-    "badges": ["promocion", "pocas-unidades"],
+    "image": "/products/silicon-estructural.jpg",
+    "badges": [
+      "promocion",
+      "pocas-unidades"
+    ],
     "stock": 5
   },
   {
@@ -151,8 +175,10 @@
     "price": 33.2,
     "oldPrice": null,
     "currency": "usd",
-    "image": null,
-    "badges": ["mas-vendido"],
+    "image": "/products/juego-desarmadores.jpg",
+    "badges": [
+      "mas-vendido"
+    ],
     "stock": 28
   }
 ]

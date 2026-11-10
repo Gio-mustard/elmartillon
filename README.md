@@ -142,15 +142,26 @@ Etiquetas disponibles en `badges`:
 
 ### Imágenes
 
-`image` es opcional:
+Los 12 productos y el banner ya tienen foto real en `public/products/` y
+`public/banners/`, todas recortadas a **800×500** (el 16:10 de la tarjeta).
 
-- **`null`** → se dibuja un placeholder SVG generado (silueta de martillo con un
-  color estable por producto).
-- **Ruta definida** → se usa esa imagen. Coloca el archivo en `public/`, por
-  ejemplo `public/products/taladro.jpg`, y pon `"image": "/products/taladro.jpg"`.
+`image` sigue siendo opcional:
+
+- **Ruta definida** → se usa esa imagen. El archivo va en `public/`, por
+  ejemplo `public/products/taladro-percutor.jpg`, con
+  `"image": "/products/taladro-percutor.jpg"`.
+- **`null`** → se dibuja un placeholder SVG generado (silueta de martillo con
+  un color estable por producto).
 
 Si una ruta definida falla al cargar, `ProductImage` cae automáticamente al
 placeholder, así que el diseño nunca se rompe.
+
+**Procedencia:** las fotos se bajaron de [Openverse](https://openverse.org) y
+cada una queda registrada —título, autor, licencia y página de origen— en
+`public/CREDITOS-IMAGENES.json`. Son fotos de archivo para la maqueta, no
+producto real de la tienda: para producción hay que sustituirlas por fotos
+propias. Para reemplazar una basta con pisar el archivo en `public/products/`
+manteniendo el nombre.
 
 ## Búsqueda y filtros
 
