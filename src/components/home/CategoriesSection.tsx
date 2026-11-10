@@ -14,9 +14,7 @@ export function CategoriesSection() {
                 href="#catalogo"
                 className="flex h-full flex-col items-center gap-3 rounded-lg border border-line bg-white px-3 py-5 text-center shadow-card transition duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:shadow-card-hover"
               >
-                <span className="grid size-11 place-items-center rounded-lg bg-brand-600 text-xl text-white">
-                  <CategoryIcon category={category} />
-                </span>
+                <CategoryIcon category={category} />
                 <span className="text-[13px] leading-snug font-semibold text-ink">
                   {category.name}
                 </span>

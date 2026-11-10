@@ -11,7 +11,7 @@ export interface Category {
   id: string
   name: string
   /**
-   * Ilustración servida desde `public/categories/`.
+   * Mosaico ya terminado (cuadro azul + glifo) en `public/categories/`.
    * Mientras el archivo no exista se dibuja `icon` como respaldo.
    */
   illustration: string | null
@@ -22,31 +22,31 @@ export const categories: Category[] = [
   {
     id: 'electricas',
     name: 'Herramientas Eléctricas',
-    illustration: '/categories/herramientas-electricas.svg',
+    illustration: '/categories/herramientasElectricas.png',
     icon: FaBolt,
   },
   {
     id: 'tornilleria',
     name: 'Tornillería y Fijación',
-    illustration: '/categories/tornilleria-fijacion.svg',
+    illustration: '/categories/tornilleriaYFijacion.png',
     icon: FaScrewdriverWrench,
   },
   {
     id: 'seguridad',
     name: 'Seguridad y Protección',
-    illustration: '/categories/seguridad-proteccion.svg',
+    illustration: '/categories/seguridadYProteccion.png',
     icon: FaHelmetSafety,
   },
   {
     id: 'plomeria',
     name: 'Plomería y gasfitería',
-    illustration: '/categories/plomeria-gasfiteria.svg',
+    illustration: '/categories/plomeriaYGasiteria.png',
     icon: FaFaucetDrip,
   },
   {
     id: 'cerrajeria',
     name: 'Cerrajería y herrajes',
-    illustration: '/categories/cerrajeria-herrajes.svg',
+    illustration: '/categories/cerrajeriaYHerrajes.png',
     icon: FaLock,
   },
 ]

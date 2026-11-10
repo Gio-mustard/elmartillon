@@ -1,9 +1,5 @@
-import {
-  FaEnvelope,
-  FaFacebookF,
-  FaTiktok,
-  FaWhatsapp,
-} from 'react-icons/fa6'
+import { FaFacebookF, FaTiktok, FaWhatsapp } from 'react-icons/fa6'
+import { MailIcon } from '../icons'
 import { footerColumns, site } from '../../data/site'
 import { Logo } from '../ui/Logo'
 
@@ -26,7 +22,7 @@ const socials = [
     id: 'email',
     label: site.email,
     href: `mailto:${site.email}`,
-    icon: FaEnvelope,
+    icon: MailIcon,
     className: 'text-brand-600',
   },
   {

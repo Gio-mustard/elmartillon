@@ -15,6 +15,16 @@ export const site = {
   description:
     'En Ferretería El Martillón te atendemos como te mereces: llega, pregunta y llévate la herramienta correcta. Asesoría honesta, marcas de primera y surtido para obra, taller y casa.',
   visitSubtitle: 'Encontrarás a expertos que asesorarán tu compra',
+  /** Enlace que se abre en la app de Google Maps. */
+  mapUrl: 'https://maps.app.goo.gl/tGUsoWajrYerzNuS6',
+  /**
+   * Mapa incrustado, con las coordenadas a las que resuelve `mapUrl`.
+   * Es la URL /maps/embed directa y no necesita API key. Ojo: el atajo
+   * `/maps?...&output=embed` responde un 301 con `X-Frame-Options:
+   * SAMEORIGIN` y el navegador deja el iframe en blanco.
+   */
+  mapEmbedUrl:
+    'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s32.6056369,-115.3581992!6i17!3m1!1ses!5m1!1ses',
 } as const
 
 /**
@@ -23,8 +33,11 @@ export const site = {
  * así que basta con exportar el SVG en esa ruta para que aparezca.
  */
 export const brandAssets = {
-  /** Martillo del logo: SVG blanco, fondo transparente, lienzo cuadrado. */
-  hammer: '/brand/martillo.svg' as string | null,
+  /**
+   * Mosaico del logo ya terminado (cuadro azul + martillo blanco), tal como
+   * se exportó. El nombre lleva espacios, por eso va codificado.
+   */
+  hammer: '/icons/EL%20MARTILLON%20VERSION%20FINAL.png' as string | null,
 } as const
 
 export interface NavLink {

@@ -1,6 +1,6 @@
-import { FaArrowTrendDown, FaCartShopping } from 'react-icons/fa6'
 import { formatPrice } from '../../lib/format'
 import type { Product } from '../../types/product'
+import { ShoppingCartIcon, TrendingDownIcon } from '../icons'
 import { Badge } from './Badge'
 import { ProductImage } from './ProductImage'
 
@@ -32,7 +32,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {lowStock ? (
           <p className="flex items-center gap-1 text-[11px] font-semibold text-danger-500">
-            <FaArrowTrendDown aria-hidden />
+            <TrendingDownIcon />
             Pocas unidades disponibles
           </p>
         ) : null}
@@ -61,7 +61,7 @@ export function ProductCard({ product }: ProductCardProps) {
             aria-label={`Agregar ${product.name} al carrito`}
             className="grid size-9 shrink-0 place-items-center rounded-full bg-brand-600 text-white transition hover:bg-accent-500 hover:text-brand-800"
           >
-            <FaCartShopping aria-hidden />
+            <ShoppingCartIcon />
           </button>
         </div>
       </div>

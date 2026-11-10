@@ -19,25 +19,29 @@ export function Logo({ className = '', compact = false }: LogoProps) {
       aria-label={`${site.name} ${site.tagline}`}
       className={`flex items-center gap-2.5 ${className}`}
     >
-      <span
-        className={`grid shrink-0 place-items-center rounded-lg bg-brand-600 text-white ${
-          compact ? 'size-9' : 'size-11'
-        }`}
-      >
-        {showExportedMark ? (
-          <img
-            src={markSrc}
-            alt=""
-            className="h-[58%] w-[58%] object-contain"
-            onError={() => setMarkFailed(true)}
-          />
-        ) : (
+      {showExportedMark ? (
+        // El PNG ya trae el cuadro azul; `rounded-lg` recorta sus esquinas
+        // blancas para que no se noten sobre el fondo del pie de página.
+        <img
+          src={markSrc}
+          alt=""
+          className={`shrink-0 rounded-lg object-contain ${
+            compact ? 'size-9' : 'size-11'
+          }`}
+          onError={() => setMarkFailed(true)}
+        />
+      ) : (
+        <span
+          className={`grid shrink-0 place-items-center rounded-lg bg-brand-600 text-white ${
+            compact ? 'size-9' : 'size-11'
+          }`}
+        >
           <FaHammer
             aria-hidden
             className={`-scale-x-100 ${compact ? 'text-lg' : 'text-xl'}`}
           />
-        )}
-      </span>
+        </span>
+      )}
 
       <span className="leading-none">
         <span

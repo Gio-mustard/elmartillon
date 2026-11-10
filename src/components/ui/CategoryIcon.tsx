@@ -3,14 +3,14 @@ import type { Category } from '../../data/catalog'
 
 interface CategoryIconProps {
   category: Category
-  className?: string
 }
 
 /**
- * Ilustración de la categoría. Usa el SVG de `public/categories/` y, si ese
- * archivo todavía no existe, cae al icono de react-icons.
+ * Mosaico de la categoría. Los archivos de `public/categories/` ya traen el
+ * cuadro azul y el glifo, así que se pintan tal cual; si alguno falta, se
+ * dibuja el cuadro azul con el icono de react-icons de respaldo.
  */
-export function CategoryIcon({ category, className = '' }: CategoryIconProps) {
+export function CategoryIcon({ category }: CategoryIconProps) {
   const [failed, setFailed] = useState(false)
   const { illustration, icon: Icon, name } = category
 
@@ -19,11 +19,17 @@ export function CategoryIcon({ category, className = '' }: CategoryIconProps) {
       <img
         src={illustration}
         alt=""
-        className={`h-[58%] w-[58%] object-contain ${className}`}
+        width={48}
+        height={48}
+        className="size-12 rounded-lg object-contain"
         onError={() => setFailed(true)}
       />
     )
   }
 
-  return <Icon aria-hidden className={className} title={name} />
+  return (
+    <span className="grid size-12 place-items-center rounded-lg bg-brand-600 text-xl text-white">
+      <Icon aria-hidden title={name} />
+    </span>
+  )
 }

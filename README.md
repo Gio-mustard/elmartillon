@@ -32,8 +32,8 @@ pie de página.
 
 ```
 public/
-├── brand/martillo.svg           # icono del logo (ver "Recursos por exportar")
-└── categories/*.svg             # ilustraciones de las 5 categorías
+├── icons/                       # logo e iconos exportados por diseño
+└── categories/*.png             # mosaicos de las 5 categorías
 
 src/
 ├── App.tsx                      # composición de la home + estado del catálogo
@@ -50,34 +50,68 @@ src/
 │   ├── placeholder.ts           # genera el placeholder SVG
 │   └── format.ts                # formato de precios "$67.57 usd"
 └── components/
+    ├── icons/                   # Material Symbols inlineados
     ├── layout/                  # TopBar, Header, NavBar, Footer
     ├── home/                    # Hero, Selección, Categorías, Catálogo, Visítanos
     └── ui/                      # ProductCard, ProductImage, CategoryIcon, Badge,
                                  #   BrandTile, Logo
 ```
 
-## Recursos por exportar
+## Recursos de diseño
 
-Los SVG van en `public/` con estos nombres exactos. En cuanto el archivo
-existe se usa solo; mientras no exista, el componente dibuja un icono de
-respaldo (por eso la consola muestra un 404 por cada archivo pendiente).
+### Categorías — listo
 
-| Archivo                                      | Qué es                      |
-| -------------------------------------------- | --------------------------- |
-| `public/brand/martillo.svg`                  | martillo del logo           |
-| `public/categories/herramientas-electricas.svg` | Herramientas Eléctricas  |
-| `public/categories/tornilleria-fijacion.svg` | Tornillería y Fijación      |
-| `public/categories/seguridad-proteccion.svg` | Seguridad y Protección      |
-| `public/categories/plomeria-gasfiteria.svg`  | Plomería y gasfitería       |
-| `public/categories/cerrajeria-herrajes.svg`  | Cerrajería y herrajes       |
+`public/categories/*.png` son los mosaicos **ya terminados** (cuadro azul +
+glifo, 53×53 sin transparencia), así que se pintan tal cual a 48 px: el CSS no
+les pone ningún fondo. Las rutas están en el campo `illustration` de cada
+categoría en `src/data/catalog.ts`.
 
-Formato: **SVG, trazo blanco, fondo transparente, lienzo cuadrado** (p. ej.
-`viewBox="0 0 64 64"`). Van dentro del cuadro azul, ocupando el 58% de su
-ancho. Si prefieres exportarlos a todo color sin cuadro azul, dilo y se quita
-el fondo en `CategoriesSection` y `Logo`.
+| Archivo                                     | Categoría               |
+| ------------------------------------------- | ----------------------- |
+| `herramientasElectricas.png`                | Herramientas Eléctricas |
+| `tornilleriaYFijacion.png`                  | Tornillería y Fijación  |
+| `seguridadYProteccion.png`                  | Seguridad y Protección  |
+| `plomeriaYGasiteria.png`                    | Plomería y gasfitería   |
+| `cerrajeriaYHerrajes.png`                   | Cerrajería y herrajes   |
 
-Las rutas se declaran en `brandAssets.hammer` (`src/data/site.ts`) y en el
-campo `illustration` de cada categoría (`src/data/catalog.ts`).
+Son PNG a 1x, así que en pantallas retina se ven algo suaves; si los
+reexportas a 106 px (2x) o a SVG, se vuelven nítidos sin tocar código.
+
+### Iconos de la app — listo
+
+`public/icons/*.svg` (Material Symbols) están inlineados en
+`src/components/icons/index.tsx` con `fill="currentColor"`: los archivos traen
+`fill="#0D47A1"` fijo y hay que teñirlos de blanco sobre el botón azul del
+carrito y de rojo en "Pocas unidades". Se usan en el carrito y la cuenta del
+header, el botón de carrito de cada producto, el aviso de stock bajo y el
+correo del pie. **Si reexportas alguno, copia su atributo `d` al componente.**
+
+### Logo — listo
+
+`public/icons/EL MARTILLON VERSION FINAL.png` es el mosaico terminado (cuadro
+azul + martillo blanco, 47×47) y se usa en dos lugares:
+
+- el logo del header y del pie, vía `brandAssets.hammer` en `src/data/site.ts`;
+- el icono de la pestaña, en el `<link rel="icon">` de `index.html`.
+
+Como el nombre lleva espacios, ambas rutas van codificadas (`%20`). Si lo
+renombras sin espacios, hay que actualizar esos dos lugares. Si el archivo
+falta, el logo cae a un martillo de react-icons.
+
+El PNG trae esquinas redondeadas sobre blanco, así que la clase `rounded-lg`
+las recorta para que no se vean contra el fondo azul claro del pie.
+
+## Mapa
+
+`VisitSection` incrusta Google Maps sin API key. Las dos URLs están en
+`site.mapUrl` (el enlace corto que abre la app) y `site.mapEmbedUrl` (el
+iframe), en `src/data/site.ts`.
+
+El atajo `https://www.google.com/maps?q=…&output=embed` **no sirve**: responde
+un 301 que lleva `X-Frame-Options: SAMEORIGIN` y el iframe queda en blanco. Hay
+que usar la URL `/maps/embed?pb=…` a la que ese atajo redirige, que no manda
+esa cabecera. Para cambiar de dirección, abre el enlace corto nuevo, sigue su
+redirección y copia el `pb=…` resultante.
 
 ## Productos
 
