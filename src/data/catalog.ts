@@ -55,22 +55,47 @@ export interface Brand {
   id: string
   name: string
   tagline?: string
-  /** Colores de la pastilla de marca, tomados del diseño. */
+  /**
+   * Logo en `public/ferreterias/`. Ya viene como mosaico cuadrado con su
+   * fondo de color, así que rellena la pastilla completa.
+   * Si falta, se dibuja la pastilla de texto con los colores de abajo.
+   */
+  logo: string | null
+  /** Colores de respaldo, tomados del diseño. */
   background: string
   foreground: string
 }
 
 export const featuredBrands: Brand[] = [
-  { id: 'truper', name: 'TRUPER', background: '#2f3134', foreground: '#f07722' },
+  {
+    id: 'truper',
+    name: 'TRUPER',
+    logo: '/ferreterias/trupper.png.webp',
+    background: '#f07722',
+    foreground: '#ffffff',
+  },
   {
     id: 'urrea',
     name: 'URREA',
     tagline: 'HERRAMIENTAS DE CALIDAD SUPERIOR',
+    logo: '/ferreterias/urrea.jpeg',
     background: '#d4121a',
     foreground: '#ffffff',
   },
-  { id: 'dewalt', name: 'DEWALT', background: '#febd17', foreground: '#17181a' },
-  { id: 'bosch', name: 'BOSCH', background: '#0b2b5c', foreground: '#ffffff' },
+  {
+    id: 'dewalt',
+    name: 'DEWALT',
+    logo: '/ferreterias/dewalt.jpeg',
+    background: '#febd17',
+    foreground: '#17181a',
+  },
+  {
+    id: 'bosch',
+    name: 'BOSCH',
+    logo: '/ferreterias/bosh.png',
+    background: '#0b2b5c',
+    foreground: '#ffffff',
+  },
 ]
 
 export interface HeroSlide {
@@ -95,7 +120,7 @@ export const heroSlides: HeroSlide[] = [
     titleTail: 'en productos TRUPER',
     ctaLabel: 'Ver promociones',
     ctaHref: '#catalogo',
-    image: '/banners/buen-fin.jpg',
+    image: '/banners/buen-fin.png',
     imageAlt: 'Promoción de Buen Fin en herramientas Truper',
   },
 ]

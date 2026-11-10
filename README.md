@@ -86,6 +86,25 @@ carrito y de rojo en "Pocas unidades". Se usan en el carrito y la cuenta del
 header, el botón de carrito de cada producto, el aviso de stock bajo y el
 correo del pie. **Si reexportas alguno, copia su atributo `d` al componente.**
 
+### Marcas destacadas — listo
+
+`public/ferreterias/` tiene el logo de cada marca. Igual que las categorías,
+son mosaicos cuadrados con su propio fondo de color, así que `BrandTile` los
+pinta rellenando la pastilla completa (`object-cover`), sin fondo ni texto
+encima. Las rutas están en el campo `logo` de `featuredBrands`
+(`src/data/catalog.ts`):
+
+| Archivo                 | Marca  |
+| ----------------------- | ------ |
+| `trupper.png.webp`      | Truper |
+| `urrea.jpeg`            | Urrea  |
+| `dewalt.jpeg`           | DeWalt |
+| `bosh.png`              | Bosch  |
+
+Los nombres se dejaron tal como se exportaron para que un reemplazo pise el
+archivo sin tocar código. Si falta alguno, la pastilla cae a la versión de
+texto con los colores del diseño (`background` / `foreground`).
+
 ### Logo — listo
 
 `public/icons/EL MARTILLON VERSION FINAL.png` es el mosaico terminado (cuadro

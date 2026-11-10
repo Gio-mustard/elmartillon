@@ -130,16 +130,5 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
     "source": "flickr",
     "page": "https://www.flickr.com/photos/33504192@N00/4150696778"
-  },
-  {
-    "slot": "hero",
-    "file": "/banners/buen-fin.jpg",
-    "title": "Hard Hat with Hand Tools Inside",
-    "creator": "toolstop",
-    "license": "by",
-    "license_version": "2.0",
-    "license_url": "https://creativecommons.org/licenses/by/2.0/",
-    "source": "flickr",
-    "page": "https://www.flickr.com/photos/42408834@N06/4420180838"
   }
 ]
