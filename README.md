@@ -1,32 +1,101 @@
-# React + TypeScript + Vite
+# El Martillón Industrial
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Maqueta de la página de inicio de la ferretería **El Martillón**, construida con
+Vite + React + TypeScript y Tailwind CSS v4.
 
-Currently, two official plugins are available:
+## Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm run dev      # servidor de desarrollo en http://localhost:5173
+npm run build    # typecheck (tsc -b) + build de producción en dist/
+npm run preview  # sirve el build de producción
+npm run lint     # oxlint
+```
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Pieza      | Elección                                  |
+| ---------- | ----------------------------------------- |
+| Bundler    | Vite 8                                    |
+| UI         | React 19 + TypeScript                     |
+| Estilos    | Tailwind CSS v4 (`@tailwindcss/vite`)     |
+| Iconos     | `react-icons/fa6` (Font Awesome 6)        |
+| Datos      | JSON local (`src/data/products.json`)     |
 
-## Expanding the Oxlint configuration
+La home es una **maqueta estática**: no hay estado, carrito, filtros ni
+paginación funcional. El buscador, las flechas del carrusel, los botones de
+carrito y la paginación están maquetados y listos para conectarse.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Estructura
+
+```
+src/
+├── App.tsx                      # composición de la home
+├── index.css                    # Tailwind + tokens del diseño (@theme)
+├── types/product.ts             # tipo Product y sus etiquetas
+├── data/
+│   ├── products.json            # catálogo global de prueba
+│   ├── products.ts              # carga y tipa el JSON + totales del catálogo
+│   ├── catalog.ts               # categorías, marcas y banner del hero
+│   └── site.ts                  # teléfono, horario, navegación, footer
+├── lib/
+│   ├── placeholder.ts           # genera el placeholder SVG
+│   └── format.ts                # formato de precios "$67.57 usd"
+└── components/
+    ├── layout/                  # TopBar, Header, NavBar, Footer
+    ├── home/                    # Hero, Selección, Categorías, Catálogo, Visítanos
+    └── ui/                      # ProductCard, ProductImage, Badge, BrandTile, Logo
+```
+
+## Productos
+
+Los productos viven en `src/data/products.json`. Cada objeto sigue el tipo
+`Product` de `src/types/product.ts`:
 
 ```json
 {
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
+  "id": "p-001",
+  "sku": "TRU-16500",
+  "name": "Taladro percutor 1/2\" 750 W",
+  "brand": "Truper",
+  "category": "Herramientas Eléctricas",
+  "price": 67.57,
+  "oldPrice": 100.57,
+  "currency": "usd",
+  "image": null,
+  "badges": ["promocion", "pocas-unidades"],
+  "stock": 4
 }
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Etiquetas disponibles en `badges`:
+
+- `promocion` → pastilla roja "Promoción"
+- `mas-vendido` → pastilla azul "Más vendido"
+- `pocas-unidades` → texto rojo "Pocas unidades disponibles"
+
+### Imágenes
+
+`image` es opcional:
+
+- **`null`** → se dibuja un placeholder SVG generado (silueta de martillo con un
+  color estable por producto).
+- **Ruta definida** → se usa esa imagen. Coloca el archivo en `public/`, por
+  ejemplo `public/products/taladro.jpg`, y pon `"image": "/products/taladro.jpg"`.
+
+Si una ruta definida falla al cargar, `ProductImage` cae automáticamente al
+placeholder, así que el diseño nunca se rompe.
+
+## Tokens del diseño
+
+Los colores viven en el bloque `@theme` de `src/index.css` y se usan como
+utilidades de Tailwind (`bg-brand-600`, `text-accent-500`, `bg-danger-500`…):
+
+| Token         | Color     | Uso                                  |
+| ------------- | --------- | ------------------------------------ |
+| `brand-600`   | `#1b4ea8` | header, banner, botones, iconos      |
+| `brand-800`   | `#103470` | logo, pastilla "Más vendido"         |
+| `accent-500`  | `#ffd100` | Buen Fin, hover del botón de carrito |
+| `danger-500`  | `#d8232a` | promociones y stock bajo             |
+| `surface`     | `#eef1f6` | fondo de la página                   |
+| `footerbg`    | `#dae4f1` | fondo del pie de página              |

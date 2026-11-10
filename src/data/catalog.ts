@@ -1,0 +1,75 @@
+import type { IconType } from 'react-icons'
+import {
+  FaBolt,
+  FaFaucetDrip,
+  FaHelmetSafety,
+  FaLock,
+  FaScrewdriverWrench,
+} from 'react-icons/fa6'
+
+export interface Category {
+  id: string
+  name: string
+  icon: IconType
+}
+
+export const categories: Category[] = [
+  { id: 'electricas', name: 'Herramientas Eléctricas', icon: FaBolt },
+  { id: 'tornilleria', name: 'Tornillería y Fijación', icon: FaScrewdriverWrench },
+  { id: 'seguridad', name: 'Seguridad y Protección', icon: FaHelmetSafety },
+  { id: 'plomeria', name: 'Plomería y gasfitería', icon: FaFaucetDrip },
+  { id: 'cerrajeria', name: 'Cerrajería y herrajes', icon: FaLock },
+]
+
+export interface Brand {
+  id: string
+  name: string
+  tagline?: string
+  /** Colores de la pastilla de marca, tomados del diseño. */
+  background: string
+  foreground: string
+}
+
+export const featuredBrands: Brand[] = [
+  { id: 'truper', name: 'TRUPER', background: '#2f3134', foreground: '#f07722' },
+  {
+    id: 'urrea',
+    name: 'URREA',
+    tagline: 'HERRAMIENTAS DE CALIDAD SUPERIOR',
+    background: '#d4121a',
+    foreground: '#ffffff',
+  },
+  { id: 'dewalt', name: 'DEWALT', background: '#febd17', foreground: '#17181a' },
+  { id: 'bosch', name: 'BOSCH', background: '#0b2b5c', foreground: '#ffffff' },
+]
+
+export interface HeroSlide {
+  id: string
+  eyebrow: string
+  titleLead: string
+  titleHighlight: string
+  titleTail: string
+  ctaLabel: string
+  ctaHref: string
+  /** Ruta de la imagen del banner; null dibuja un placeholder. */
+  image: string | null
+  imageAlt: string
+}
+
+export const heroSlides: HeroSlide[] = [
+  {
+    id: 'buen-fin',
+    eyebrow: 'APROVECHA ESTE BUEN FIN',
+    titleLead: 'Hasta un',
+    titleHighlight: '30% OFF',
+    titleTail: 'en productos TRUPER',
+    ctaLabel: 'Ver promociones',
+    ctaHref: '#catalogo',
+    image: null,
+    imageAlt: 'Promoción de Buen Fin en herramientas Truper',
+  },
+]
+
+/** Productos destacados en los paneles de "Nuestra Selección". */
+export const bestSellerIds = ['p-009', 'p-012', 'p-008', 'p-005']
+export const favoriteIds = ['p-011', 'p-010', 'p-003', 'p-002']
