@@ -1,27 +1,42 @@
 import { FaCartShopping, FaMagnifyingGlass, FaRegUser } from 'react-icons/fa6'
-import { searchCategories } from '../../data/site'
+import { productCategories } from '../../data/products'
+import type { CatalogState } from '../../hooks/useCatalog'
+import { ALL_CATEGORIES } from '../../lib/search'
 import { Logo } from '../ui/Logo'
 
-export function Header() {
+interface HeaderProps {
+  catalog: CatalogState
+}
+
+export function Header({ catalog }: HeaderProps) {
+  const { filters, setFilter } = catalog
+
   return (
     <header className="border-b border-line bg-white">
       <div className="shell flex flex-wrap items-center justify-between gap-4 py-3">
         <Logo />
 
-        {/* Buscador: maqueta estática, sin lógica de búsqueda */}
         <form
           className="order-3 flex w-full max-w-[620px] items-stretch rounded-md border border-line bg-white md:order-none"
-          onSubmit={(event) => event.preventDefault()}
+          onSubmit={(event) => {
+            event.preventDefault()
+            document
+              .getElementById('catalogo')
+              ?.scrollIntoView({ behavior: 'smooth' })
+          }}
+          role="search"
         >
           <label className="sr-only" htmlFor="search-category">
             Categoría
           </label>
           <select
             id="search-category"
-            defaultValue={searchCategories[0]}
+            value={filters.category}
+            onChange={(event) => setFilter('category', event.target.value)}
             className="w-[170px] shrink-0 rounded-l-md bg-white px-3 text-[13px] text-ink/80 outline-none"
           >
-            {searchCategories.map((category) => (
+            <option value={ALL_CATEGORIES}>{ALL_CATEGORIES}</option>
+            {productCategories.map((category) => (
               <option key={category} value={category}>
                 {category}
               </option>
@@ -36,6 +51,8 @@ export function Header() {
           <input
             id="search-term"
             type="search"
+            value={filters.query}
+            onChange={(event) => setFilter('query', event.target.value)}
             placeholder="Buscar por nombre, SKU, marca o medida"
             className="min-w-0 flex-1 px-3 py-2 text-[13px] text-ink outline-none placeholder:text-muted/80"
           />

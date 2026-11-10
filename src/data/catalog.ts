@@ -10,15 +10,45 @@ import {
 export interface Category {
   id: string
   name: string
+  /**
+   * Ilustración servida desde `public/categories/`.
+   * Mientras el archivo no exista se dibuja `icon` como respaldo.
+   */
+  illustration: string | null
   icon: IconType
 }
 
 export const categories: Category[] = [
-  { id: 'electricas', name: 'Herramientas Eléctricas', icon: FaBolt },
-  { id: 'tornilleria', name: 'Tornillería y Fijación', icon: FaScrewdriverWrench },
-  { id: 'seguridad', name: 'Seguridad y Protección', icon: FaHelmetSafety },
-  { id: 'plomeria', name: 'Plomería y gasfitería', icon: FaFaucetDrip },
-  { id: 'cerrajeria', name: 'Cerrajería y herrajes', icon: FaLock },
+  {
+    id: 'electricas',
+    name: 'Herramientas Eléctricas',
+    illustration: '/categories/herramientas-electricas.svg',
+    icon: FaBolt,
+  },
+  {
+    id: 'tornilleria',
+    name: 'Tornillería y Fijación',
+    illustration: '/categories/tornilleria-fijacion.svg',
+    icon: FaScrewdriverWrench,
+  },
+  {
+    id: 'seguridad',
+    name: 'Seguridad y Protección',
+    illustration: '/categories/seguridad-proteccion.svg',
+    icon: FaHelmetSafety,
+  },
+  {
+    id: 'plomeria',
+    name: 'Plomería y gasfitería',
+    illustration: '/categories/plomeria-gasfiteria.svg',
+    icon: FaFaucetDrip,
+  },
+  {
+    id: 'cerrajeria',
+    name: 'Cerrajería y herrajes',
+    illustration: '/categories/cerrajeria-herrajes.svg',
+    icon: FaLock,
+  },
 ]
 
 export interface Brand {

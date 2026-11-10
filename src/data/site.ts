@@ -17,6 +17,16 @@ export const site = {
   visitSubtitle: 'Encontrarás a expertos que asesorarán tu compra',
 } as const
 
+/**
+ * Recursos de marca servidos desde `public/`.
+ * Si el archivo todavía no existe, el componente dibuja un icono de respaldo,
+ * así que basta con exportar el SVG en esa ruta para que aparezca.
+ */
+export const brandAssets = {
+  /** Martillo del logo: SVG blanco, fondo transparente, lienzo cuadrado. */
+  hammer: '/brand/martillo.svg' as string | null,
+} as const
+
 export interface NavLink {
   label: string
   href: string
@@ -27,17 +37,6 @@ export const navLinks: NavLink[] = [
   { label: 'CATÁLOGO', href: '#catalogo' },
   { label: 'MARCAS', href: '#marcas' },
   { label: 'CONTACTO', href: '#contacto' },
-]
-
-/** Opciones del selector que acompaña al buscador del header. */
-export const searchCategories: string[] = [
-  'Todas las categorías',
-  'Herramientas Eléctricas',
-  'Herramientas Manuales',
-  'Tornillería y Fijación',
-  'Seguridad y Protección',
-  'Plomería y gasfitería',
-  'Cerrajería y herrajes',
 ]
 
 export interface FooterColumn {

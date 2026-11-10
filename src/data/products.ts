@@ -21,9 +21,16 @@ export const getProductsByIds = (ids: string[]): Product[] =>
     .map((id) => products.find((product) => product.id === id))
     .filter((product): product is Product => product !== undefined)
 
-/** Totales mostrados bajo la rejilla del catálogo (maqueta estática). */
-export const catalogMeta = {
-  found: 72,
-  currentPage: 1,
-  pages: 12,
-} as const
+const unique = (values: string[]): string[] =>
+  [...new Set(values)].sort((a, b) => a.localeCompare(b, 'es'))
+
+/** Opciones de filtro derivadas del propio catálogo. */
+export const productBrands = unique(products.map((product) => product.brand))
+export const productCategories = unique(
+  products.map((product) => product.category),
+)
+
+export const priceRange = {
+  min: Math.floor(Math.min(...products.map((product) => product.price))),
+  max: Math.ceil(Math.max(...products.map((product) => product.price))),
+}
